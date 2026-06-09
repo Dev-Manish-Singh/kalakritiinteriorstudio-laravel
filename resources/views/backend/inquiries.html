@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interior Studio Admin - Inquiry</title>
+  <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style88f9.css?v1.1.3">
+  <link rel="stylesheet" href="assets/css/interior-admin.css">
+</head>
+<body class="nk-body interior-admin-page">
+  <div class="ia-shell">
+    <aside class="ia-sidebar">
+      <a class="ia-brand" href="index.html"><span class="ia-brand-mark">IS</span><span><strong>Interior Studio</strong><small>Admin Panel</small></span></a>
+      <nav class="ia-menu">
+        <a href="index.html"><em class="icon ni ni-dashboard"></em>Dashboard</a>
+        <a href="banners.html"><em class="icon ni ni-img"></em>Banner Management</a>
+        <a href="testimonials.html"><em class="icon ni ni-chat-circle"></em>Testimonials</a>
+        <a href="services.html"><em class="icon ni ni-setting"></em>Services</a>
+        <a href="projects.html"><em class="icon ni ni-building"></em>Projects</a>
+        <a href="gallery.html"><em class="icon ni ni-grid-alt"></em>Gallery</a>
+        <a href="blogs.html"><em class="icon ni ni-file-text"></em>Blogs</a>
+        <a class="active" href="inquiries.html"><em class="icon ni ni-question"></em>Inquiry</a>
+        <a href="settings.html"><em class="icon ni ni-setting-alt"></em>Settings</a>
+      </nav>
+    </aside>
+    <main class="ia-main">
+      <header class="ia-topbar">
+        <button class="ia-menu-toggle" type="button" aria-label="Toggle menu"><em class="icon ni ni-menu"></em></button>
+        <div>
+          <p class="ia-kicker">Website leads</p>
+          <h1>Inquiry</h1>
+        </div>
+        <button class="btn ia-btn-gold" type="button"><em class="icon ni ni-download"></em><span>Export Leads</span></button>
+      </header>
+
+      <div class="card ia-card">
+        <div class="card-body">
+          <ul class="nav nav-tabs ia-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#contactFormTab" type="button" role="tab">Contact Form Data</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#inquiryFormTab" type="button" role="tab">Inquiry Form Data</button>
+            </li>
+          </ul>
+
+          <div class="tab-content pt-4">
+            <div class="tab-pane fade show active" id="contactFormTab" role="tabpanel">
+              <div class="table-responsive">
+                <table class="table table-middle ia-table datatable-init" data-show-per-page="5" data-nk-container="table-responsive">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Subject</th>
+                      <th>Message</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Riya Sharma</td>
+                      <td>riya.sharma@example.com</td>
+                      <td>+91 98765 42110</td>
+                      <td>Living room consultation</td>
+                      <td>Need a premium neutral theme for a new apartment.</td>
+                      <td>2026-05-19</td>
+                      <td><span class="ia-badge active">New</span></td>
+                      <td class="text-end"><div class="ia-action-group"><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-eye"></em></button><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-mail"></em></button><button class="btn btn-sm btn-outline-danger" type="button"><em class="icon ni ni-trash"></em></button></div></td>
+                    </tr>
+                    <tr>
+                      <td>Amit Mehta</td>
+                      <td>amit.mehta@example.com</td>
+                      <td>+91 99887 77665</td>
+                      <td>Office interiors</td>
+                      <td>Looking for a reception and meeting room redesign.</td>
+                      <td>2026-05-18</td>
+                      <td><span class="ia-badge draft">Pending</span></td>
+                      <td class="text-end"><div class="ia-action-group"><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-eye"></em></button><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-mail"></em></button><button class="btn btn-sm btn-outline-danger" type="button"><em class="icon ni ni-trash"></em></button></div></td>
+                    </tr>
+                    <tr>
+                      <td>Neha Kapoor</td>
+                      <td>neha.kapoor@example.com</td>
+                      <td>+91 91234 56780</td>
+                      <td>Kitchen design</td>
+                      <td>Please share design package details for modular kitchen.</td>
+                      <td>2026-05-17</td>
+                      <td><span class="ia-badge inactive">Closed</span></td>
+                      <td class="text-end"><div class="ia-action-group"><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-eye"></em></button><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-mail"></em></button><button class="btn btn-sm btn-outline-danger" type="button"><em class="icon ni ni-trash"></em></button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="inquiryFormTab" role="tabpanel">
+              <div class="table-responsive">
+                <table class="table table-middle ia-table datatable-init" data-show-per-page="5" data-nk-container="table-responsive">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Project Type</th>
+                      <th>Location</th>
+                      <th>Area/Size</th>
+                      <th>Budget</th>
+                      <th>Preferred Date</th>
+                      <th>Requirement</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Dev Patel</td>
+                      <td>Residential Villa</td>
+                      <td>Ahmedabad</td>
+                      <td>3,800 sq.ft.</td>
+                      <td>INR 65L - 80L</td>
+                      <td>2026-06-05</td>
+                      <td>Turnkey luxury villa interiors with custom furniture.</td>
+                      <td><span class="ia-badge active">New</span></td>
+                      <td class="text-end"><div class="ia-action-group"><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-eye"></em></button><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-call"></em></button><button class="btn btn-sm btn-outline-danger" type="button"><em class="icon ni ni-trash"></em></button></div></td>
+                    </tr>
+                    <tr>
+                      <td>Priya Nair</td>
+                      <td>Apartment</td>
+                      <td>Mumbai</td>
+                      <td>1,250 sq.ft.</td>
+                      <td>INR 18L - 25L</td>
+                      <td>2026-05-28</td>
+                      <td>Storage planning, bedroom styling, and lighting design.</td>
+                      <td><span class="ia-badge draft">Follow Up</span></td>
+                      <td class="text-end"><div class="ia-action-group"><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-eye"></em></button><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-call"></em></button><button class="btn btn-sm btn-outline-danger" type="button"><em class="icon ni ni-trash"></em></button></div></td>
+                    </tr>
+                    <tr>
+                      <td>Rahul Verma</td>
+                      <td>Retail Store</td>
+                      <td>Pune</td>
+                      <td>900 sq.ft.</td>
+                      <td>INR 12L - 16L</td>
+                      <td>2026-06-12</td>
+                      <td>Boutique retail layout with display wall and trial zone.</td>
+                      <td><span class="ia-badge inactive">Closed</span></td>
+                      <td class="text-end"><div class="ia-action-group"><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-eye"></em></button><button class="btn btn-sm btn-outline-dark" type="button"><em class="icon ni ni-call"></em></button><button class="btn btn-sm btn-outline-danger" type="button"><em class="icon ni ni-trash"></em></button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="assets/js/bundle88f9.js?v1.1.3"></script>
+  <script src="assets/js/scripts88f9.js?v1.1.3"></script>
+  <script src="assets/js/interior-admin.js"></script>
+  <script src="assets/js/data-tables/data-tables.js"></script>
+</body>
+</html>
