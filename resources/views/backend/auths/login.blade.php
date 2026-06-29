@@ -57,7 +57,7 @@
                     </div>
                 </form>
                 <div class="text-center mt-4">
-                    <p class="small">Don't have an account? <a href="{{ route('admin.register') }}">Register</a></p>
+                    <!-- <p class="small">Don't have an account? <a href="{{ route('admin.register') }}">Register</a></p> -->
                 </div>
             </div>
         </div>
@@ -75,11 +75,11 @@
                     <div class="col-sm-11">
                         <div class="mt-4">
                             <div class="h1 title mb-3">Welcome back to <br> your dashboard</div>
-                            <p>Static admin login page wired through Laravel Blade and ready for future auth logic.</p>
+                            <p>Manage your projects, services, and business activities from one central place.</p>
                         </div>
                     </div>
                 </div>
-                <div class="mt-5">
+                <!-- <div class="mt-5">
                     <div class="media-group media-group-overlap">
                         <div class="media media-sm media-circle media-border border-white"><img src="{{ asset('backend/images/avatar/a.jpg') }}" alt=""></div>
                         <div class="media media-sm media-circle media-border border-white"><img src="{{ asset('backend/images/avatar/b.jpg') }}" alt=""></div>
@@ -87,7 +87,7 @@
                         <div class="media media-sm media-circle media-border border-white"><img src="{{ asset('backend/images/avatar/d.jpg') }}" alt=""></div>
                     </div>
                     <p class="small mt-2">Static page only for now, as requested.</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

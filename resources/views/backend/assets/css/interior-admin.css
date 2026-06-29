@@ -91,6 +91,29 @@ body.interior-admin-page {
   color: var(--ia-gold);
 }
 
+.ia-sidebar-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #fff;
+  color: #17120f;
+  background: #fff;
+  font-weight: 800;
+  min-height: 40px;
+}
+
+.ia-sidebar-logout:hover,
+.ia-sidebar-logout:focus {
+  background: #fff;
+  border-color: #fff;
+  color: #17120f;
+}
+
+.ia-sidebar-logout .icon {
+  color: #17120f;
+}
+
 .ia-tabs {
   border-bottom-color: var(--ia-line);
 }
@@ -551,8 +574,4 @@ body.interior-admin-page {
   .ia-form-grid {
     grid-template-columns: 1fr;
   }
-}
-button.btn.btn-sm.btn-outline-dark.w-100 {
-    border: 1px solid #fff;
-    color: #f6f0e6;
 }

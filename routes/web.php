@@ -70,9 +70,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/projects', [AdminProjectController::class, 'index'])->name('projects');
     Route::post('/projects', [AdminProjectController::class, 'store'])->name('projects.store');
     Route::put('/projects/{project}', [AdminProjectController::class, 'update'])->name('projects.update');
-    Route::delete('/projects/{project}', [AdminProjectController::class, 'destroy'])
-        ->whereNumber('project')
-        ->name('projects.destroy');
+    Route::delete('/projects/{project}', [AdminProjectController::class, 'destroy'])->name('projects.destroy');
     Route::delete('/projects/bulk-delete', [AdminProjectController::class, 'bulkDestroy'])->name('projects.bulk-destroy');
     Route::get('/inquiries', [AdminInquiryController::class, 'index'])->name('inquiries');
     Route::delete('/inquiries/{inquiry}', [AdminInquiryController::class, 'destroy'])

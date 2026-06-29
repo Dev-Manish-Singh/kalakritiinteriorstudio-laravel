@@ -73,50 +73,104 @@
 
 
         <!-- faq-section -->
+        <style>
+            .faq-section .service-card {
+                height: 100%;
+                padding: 32px 24px;
+                border-radius: 18px;
+                background: #fff;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                text-align: center;
+                transition: transform 0.25s ease, box-shadow 0.25s ease;
+            }
+
+            .faq-section .service-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 18px 36px rgba(0, 0, 0, 0.1);
+            }
+
+            .faq-section .service-card__icon {
+                width: 84px;
+                height: 84px;
+                margin: 0 auto 18px;
+                border-radius: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #f7f4ee;
+            }
+
+            .faq-section .service-card__icon img {
+                width: 44px;
+                height: 44px;
+                object-fit: contain;
+            }
+
+            .faq-section .service-card__title {
+                margin: 0;
+                font-size: 20px;
+                line-height: 1.3;
+                color: #111;
+            }
+
+            .faq-section .service-card__excerpt {
+                margin: 12px 0 18px;
+                color: #666;
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .faq-section .service-card__link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 600;
+                color: #111;
+                text-decoration: none;
+            }
+
+            .faq-section .service-card__link img {
+                width: 18px;
+                height: 18px;
+            }
+        </style>
         <section class="faq-section">
             <div class="auto-container">
                 <div class="row clearfix">
-                    <div class="col-lg-5 col-md-12 col-sm-12 title-column">
-                        <div class="sec-title mb_25">
+                    <div class="col-12 title-column text-center">
+                        <div class="sec-title mb_25 centred">
                             <span class="sub-title mb_19">our services</span>
                             <h2>We provide all type of <span>modular kitchen</span> services</h2>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-12 col-sm-12 accordion-column">
-                        <ul class="accordion-box ml_20">
-                            <li class="accordion block active-block">
-                                <div class="acc-btn active"><span>01.</span>Kitchen Designs <div class="icon-box"><img src="assets/images/icons/icon-13.png" alt=""></div></div>
-                                <div class="acc-content current">
-                                    <div class="content">
-                                        <p>Publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years</p>
+                    <div class="col-12">
+                        <div class="row g-4 justify-content-center">
+                            @forelse ($services as $service)
+                                @php
+                                    $iconPath = $service->icon_path ? asset($service->icon_path) : asset('assets/images/icons/icon-13.png');
+                                @endphp
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="service-card h-100">
+                                        <div class="service-card__icon">
+                                            <img src="{{ $iconPath }}" alt="{{ $service->title }}">
+                                        </div>
+                                        <h3 class="service-card__title">
+                                            <a href="{{ route('service.details', $service) }}">{{ $service->title }}</a>
+                                        </h3>
+                                        <p class="service-card__excerpt">{{ $service->excerpt }}</p>
+                                        <a class="service-card__link" href="{{ route('service.details', $service) }}">
+                                            Read More
+                                            <img src="{{ asset('assets/images/icons/icon-47.png') }}" alt="">
+                                        </a>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="accordion block">
-                                <div class="acc-btn"><span>02.</span>Kitchen Planner <div class="icon-box"><img src="assets/images/icons/icon-13.png" alt=""></div></div>
-                                <div class="acc-content">
-                                    <div class="content">
-                                        <p>Publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years</p>
-                                    </div>
+                            @empty
+                                <div class="col-12">
+                                    <div class="alert alert-info text-center mb-0">Please add active services from <a href="{{ route('admin.services') }}">/admin/services</a> to show them here.</div>
                                 </div>
-                            </li>
-                            <li class="accordion block">
-                                <div class="acc-btn"><span>03.</span>Home Check <div class="icon-box"><img src="assets/images/icons/icon-13.png" alt=""></div></div>
-                                <div class="acc-content">
-                                    <div class="content">
-                                        <p>Publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion block">
-                                <div class="acc-btn"><span>04.</span>Smart Care <div class="icon-box"><img src="assets/images/icons/icon-13.png" alt=""></div></div>
-                                <div class="acc-content">
-                                    <div class="content">
-                                        <p>Publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                            @endforelse
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,86 +199,44 @@
             </div>
             <div class="outer-container pl_95 pr_95">
                 <div class="row clearfix">
-                    <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                        <div class="project-block-one">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><img src="assets/images/project/project-1.jpg" alt=""></figure>
-                                    <figure class="overlay-image"><img src="assets/images/project/project-1.jpg" alt=""></figure>
-                                </div>
-                                <div class="content-box">
-                                    <ul class="info-list clearfix">
-                                        <li><a href="assets/images/project/project-1.jpg" class="lightbox-image" data-fancybox="gallery"><img src="assets/images/icons/icon-14.png" alt=""></a></li>
-                                        <li><a href="project.html"><img src="assets/images/icons/icon-15.png" alt=""></a></li>
-                                    </ul>
-                                    <div class="text-box">
-                                        <p>Kitchens</p>
-                                        <h3><a href="project-details.html">Our Kitchens Design</a></h3>
+                    @forelse ($projects as $project)
+                        <div class="col-lg-3 col-md-6 col-sm-12 project-block">
+                            <div class="project-block-one">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image">
+                                            <img src="{{ asset($project->image_path) }}" alt="{{ $project->title }}">
+                                        </figure>
+                                        <figure class="overlay-image">
+                                            <img src="{{ asset($project->overlay_image_path ?: $project->image_path) }}" alt="{{ $project->title }}">
+                                        </figure>
+                                    </div>
+                                    <div class="content-box">
+                                        <ul class="info-list clearfix">
+                                            <li>
+                                                <a href="{{ asset($project->image_path) }}" class="lightbox-image" data-fancybox="gallery">
+                                                    <img src="{{ asset('assets/images/icons/icon-14.png') }}" alt="">
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('project.details', $project) }}">
+                                                    <img src="{{ asset('assets/images/icons/icon-15.png') }}" alt="">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="text-box">
+                                            <p>{{ $project->category }}</p>
+                                            <h3><a href="{{ route('project.details', $project) }}">{{ $project->title }}</a></h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                        <div class="project-block-one">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><img src="assets/images/project/project-2.jpg" alt=""></figure>
-                                    <figure class="overlay-image"><img src="assets/images/project/project-2.jpg" alt=""></figure>
-                                </div>
-                                <div class="content-box">
-                                    <ul class="info-list clearfix">
-                                        <li><a href="assets/images/project/project-2.jpg" class="lightbox-image" data-fancybox="gallery"><img src="assets/images/icons/icon-14.png" alt=""></a></li>
-                                        <li><a href="project.html"><img src="assets/images/icons/icon-15.png" alt=""></a></li>
-                                    </ul>
-                                    <div class="text-box">
-                                        <p>Kitchens</p>
-                                        <h3><a href="project-details.html">Our Kitchens Design</a></h3>
-                                    </div>
-                                </div>
-                            </div>
+                    @empty
+                        <div class="col-12">
+                            <div class="alert alert-info">No projects found yet. Please add projects from the admin panel.</div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                        <div class="project-block-one">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><img src="assets/images/project/project-3.jpg" alt=""></figure>
-                                    <figure class="overlay-image"><img src="assets/images/project/project-3.jpg" alt=""></figure>
-                                </div>
-                                <div class="content-box">
-                                    <ul class="info-list clearfix">
-                                        <li><a href="assets/images/project/project-3.jpg" class="lightbox-image" data-fancybox="gallery"><img src="assets/images/icons/icon-14.png" alt=""></a></li>
-                                        <li><a href="project.html"><img src="assets/images/icons/icon-15.png" alt=""></a></li>
-                                    </ul>
-                                    <div class="text-box">
-                                        <p>Kitchens</p>
-                                        <h3><a href="project-details.html">Our Kitchens Design</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 project-block">
-                        <div class="project-block-one">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><img src="assets/images/project/project-4.jpg" alt=""></figure>
-                                    <figure class="overlay-image"><img src="assets/images/project/project-4.jpg" alt=""></figure>
-                                </div>
-                                <div class="content-box">
-                                    <ul class="info-list clearfix">
-                                        <li><a href="assets/images/project/project-4.jpg" class="lightbox-image" data-fancybox="gallery"><img src="assets/images/icons/icon-14.png" alt=""></a></li>
-                                        <li><a href="project.html"><img src="assets/images/icons/icon-15.png" alt=""></a></li>
-                                    </ul>
-                                    <div class="text-box">
-                                        <p>Kitchens</p>
-                                        <h3><a href="project-details.html">Our Kitchens Design</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -451,58 +463,46 @@
                     <span class="sub-title mb_19">our blogs</span>
                     <h2>Recent News & Articles</h2>
                 </div>
-                <div class="row clearfix">
-                    <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                        <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><a href="{{ route('blog') }}"><img src="assets/images/news/news-1.jpg" alt=""></a></figure>
-                                    <figure class="overlay-image"><a href="{{ route('blog') }}"><img src="assets/images/news/news-1.jpg" alt=""></a></figure>
-                                </div>
-                                <div class="lower-content">
-                                    <ul class="post-info">
-                                        <li><a href="{{ route('blog') }}">Admin</a></li>
-                                        <li>19 March 2024</li>
-                                    </ul>
-                                    <h3><a href="{{ route('blog') }}">How we can fix any problem in kitchen things.</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                        <div class="news-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><a href="{{ route('blog') }}"><img src="assets/images/news/news-2.jpg" alt=""></a></figure>
-                                    <figure class="overlay-image"><a href="{{ route('blog') }}"><img src="assets/images/news/news-2.jpg" alt=""></a></figure>
-                                </div>
-                                <div class="lower-content">
-                                    <ul class="post-info">
-                                        <li><a href="{{ route('blog') }}">Admin</a></li>
-                                        <li>18 March 2024</li>
-                                    </ul>
-                                    <h3><a href="{{ route('blog') }}">Transforming space into dream come true.</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                        <div class="news-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><a href="{{ route('blog') }}"><img src="assets/images/news/news-3.jpg" alt=""></a></figure>
-                                    <figure class="overlay-image"><a href="{{ route('blog') }}"><img src="assets/images/news/news-3.jpg" alt=""></a></figure>
-                                </div>
-                                <div class="lower-content">
-                                    <ul class="post-info">
-                                        <li><a href="{{ route('blog') }}">Admin</a></li>
-                                        <li>17 March 2024</li>
-                                    </ul>
-                                    <h3><a href="{{ route('blog') }}">Our core values allow us to stay on track.</a></h3>
+                <div class="row clearfix {{ $blogs->count() === 1 ? 'justify-content-center' : '' }}">
+                    @forelse ($blogs as $blog)
+                        @php
+                            $date = $blog->published_at ?? $blog->created_at;
+                            $imagePath = $blog->image_path ? asset($blog->image_path) : asset('assets/images/news/news-1.jpg');
+                        @endphp
+                        <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="{{ ($loop->index * 300) }}ms" data-wow-duration="1500ms">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image">
+                                            <a href="{{ route('blog.details', $blog) }}">
+                                                <img src="{{ $imagePath }}" alt="{{ $blog->title }}">
+                                            </a>
+                                        </figure>
+                                        <figure class="overlay-image">
+                                            <a href="{{ route('blog.details', $blog) }}">
+                                                <img src="{{ $imagePath }}" alt="{{ $blog->title }}">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="lower-content">
+                                        <ul class="post-info">
+                                            <li><a href="{{ route('blog.details', $blog) }}">Admin</a></li>
+                                            <li>{{ $date?->format('d M Y') }}</li>
+                                        </ul>
+                                        <h3><a href="{{ route('blog.details', $blog) }}">{{ $blog->title }}</a></h3>
+                                        <p>{{ \Illuminate\Support\Str::limit($blog->excerpt, 110) }}</p>
+                                        <div class="btn-box">
+                                            <a href="{{ route('blog.details', $blog) }}" class="theme-btn">read more</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @empty
+                        <div class="col-12">
+                            <div class="alert alert-info">No blog posts found yet. Please add blogs from the admin panel.</div>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </section>

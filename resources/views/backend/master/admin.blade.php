@@ -28,7 +28,10 @@
                 <a class="{{ request()->routeIs('admin.profile') ? 'active' : '' }}" href="{{ route('admin.profile') }}"><em class="icon ni ni-user"></em>Profile</a>
                 <form action="{{ route('admin.logout') }}" method="post" class="mt-3">
                     @csrf
-                    <button type="submit" class="btn btn-sm btn-outline-dark w-100">Logout</button>
+                    <button type="submit" class="btn btn-sm ia-sidebar-logout w-100">
+                        <em class="icon ni ni-signout"></em>
+                        <span>Logout</span>
+                    </button>
                 </form>
             </nav>
         </aside>

@@ -10,7 +10,7 @@
         <div>
             <p class="ia-kicker">Today overview</p>
             <h2>Manage banners, blogs, services, projects, gallery, testimonials, and inquiries from one dashboard.</h2>
-            <p class="text-secondary mb-0">Total content items: <strong>{{ $totalItems }}</strong></p>
+            <!-- <p class="text-secondary mb-0">Total content items: <strong>{{ $totalItems }}</strong></p> -->
         </div>
         <a class="btn ia-btn-gold" href="{{ route('admin.projects') }}">
             <em class="icon ni ni-building"></em><span>Open Projects</span>

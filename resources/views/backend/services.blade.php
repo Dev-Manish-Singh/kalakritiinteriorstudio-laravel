@@ -40,6 +40,41 @@
     $formAction = $isEdit && $selectedService ? route('admin.services.update', $selectedService) : route('admin.services.store');
 @endphp
 
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const bulkButton = document.querySelector('[data-bulk-delete-button]');
+        const bulkForm = document.getElementById('serviceBulkForm');
+
+        if (!bulkButton || !bulkForm) {
+            return;
+        }
+
+        bulkButton.addEventListener('click', function () {
+            const selectedIds = Array.from(document.querySelectorAll('.ia-row-check:checked')).map((checkbox) => checkbox.value);
+
+            if (!selectedIds.length) {
+                alert('Please select at least one service.');
+                return;
+            }
+
+            bulkForm.querySelectorAll('input[name="ids[]"]').forEach((input) => input.remove());
+            selectedIds.forEach((id) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'ids[]';
+                input.value = id;
+                bulkForm.appendChild(input);
+            });
+
+            if (confirm('Delete selected services?')) {
+                bulkForm.submit();
+            }
+        });
+    });
+</script>
+@endpush
+
     @if (session('success'))
         <div class="alert alert-success mb-3">{{ session('success') }}</div>
     @endif
@@ -61,16 +96,17 @@
     <section class="row g-gs">
         <div class="col-xl-8">
             <div class="card ia-card h-100">
-                <form action="{{ route('admin.services.bulk-destroy') }}" method="post" id="serviceBulkForm">
-                    @csrf
-                    @method('DELETE')
-                    <div class="card-body">
+                <div class="card-body">
+                    <form action="{{ route('admin.services.bulk-destroy') }}" method="post" id="serviceBulkForm" class="d-none">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                     <div class="ia-section-head">
                         <div>
                             <p class="ia-kicker">Listing</p>
                             <h3>Service Cards</h3>
                         </div>
-                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete selected services?')">
+                        <button type="button" class="btn btn-sm btn-outline-danger" data-bulk-delete-button>
                             Delete Selected
                         </button>
                     </div>
@@ -134,8 +170,7 @@
                             </tbody>
                         </table>
                     </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
 
