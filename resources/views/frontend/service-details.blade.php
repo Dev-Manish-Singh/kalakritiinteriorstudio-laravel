@@ -10,7 +10,7 @@
             <h1>Service Details</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('service') }}">Services</a></li>
+                <li><a href="{{ route('services') }}">Services</a></li>
                 <li>{{ $service->title }}</li>
             </ul>
         </div>

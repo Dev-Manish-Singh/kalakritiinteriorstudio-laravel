@@ -90,12 +90,16 @@ Route::get('/index.php', [BannerController::class, 'index']);
 Route::view('/about', 'frontend.about')->name('about');
 Route::view('/about.php', 'frontend.about');
 
-Route::get('/service', [ServiceController::class, 'index'])->name('service');
-Route::get('/service.php', [ServiceController::class, 'index']);
-Route::get('/service-details/{service:slug}', [ServiceController::class, 'show'])->name('service.details');
-Route::get('/service-details.php/{service:slug}', [ServiceController::class, 'show']);
-Route::redirect('/service-details', '/service');
-Route::redirect('/service-details.php', '/service');
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::get('/services.php', [ServiceController::class, 'index']);
+Route::get('/service/{service:slug}', [ServiceController::class, 'show'])->name('service.details');
+Route::get('/service.php/{service:slug}', [ServiceController::class, 'show']);
+Route::redirect('/service', '/services');
+Route::redirect('/service.php', '/services');
+Route::redirect('/service-details/{service:slug}', '/service/{service:slug}');
+Route::redirect('/service-details.php/{service:slug}', '/service/{service:slug}');
+Route::redirect('/service-details', '/services');
+Route::redirect('/service-details.php', '/services');
 
 Route::get('/project', [ProjectController::class, 'index'])->name('project');
 Route::get('/project.php', [ProjectController::class, 'index']);

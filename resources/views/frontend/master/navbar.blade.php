@@ -38,7 +38,7 @@
                                     <ul class="navigation clearfix">
                                         <li><a href="{{ route('home') }}">Home</a></li>
                                         <li><a href="{{ route('about') }}">About Us</a></li>
-                                        <li><a href="{{ route('service') }}">Services</a></li>
+                                        <li><a href="{{ route('services') }}">Services</a></li>
                                         <li><a href="{{ route('project') }}">Projects</a></li>
                                         <li><a href="{{ route('gallery') }}">Gallery</a></li>
                                         <li><a href="{{ route('blog') }}">Blog</a></li>

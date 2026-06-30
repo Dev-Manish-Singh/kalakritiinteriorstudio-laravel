@@ -28,7 +28,7 @@
                                         </div>
                                         <ul class="links-list clearfix">
                                             <li><a href="{{ route('about') }}">Company</a></li>
-                                            <li><a href="{{ route('service') }}">Service</a></li>
+                                            <li><a href="{{ route('services') }}">Services</a></li>
                                             <li><a href="{{ route('project') }}">Projects</a></li>
                                             <li><a href="{{ route('contact') }}">Contacts</a></li>
                                             <li><a href="{{ route('blog') }}">Blogs</a></li>
@@ -41,10 +41,10 @@
                                             <span>Services</span>
                                         </div>
                                         <ul class="links-list clearfix">
-                                            <li><a href="{{ route('service') }}">Kitchen Drawing</a></li>
-                                            <li><a href="{{ route('service') }}">Kitchen Installation</a></li>
-                                            <li><a href="{{ route('service') }}">Kitchen Modelling</a></li>
-                                            <li><a href="{{ route('service') }}">Kitchen Renovation</a></li>
+                                            <li><a href="{{ route('services') }}">Kitchen Drawing</a></li>
+                                            <li><a href="{{ route('services') }}">Kitchen Installation</a></li>
+                                            <li><a href="{{ route('services') }}">Kitchen Modelling</a></li>
+                                            <li><a href="{{ route('services') }}">Kitchen Renovation</a></li>
                                         </ul>
                                     </div>
                                 </div>
