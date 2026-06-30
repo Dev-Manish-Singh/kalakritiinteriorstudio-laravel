@@ -2,6 +2,40 @@
 @section('title', 'Interior Studio Admin - Inquiries')
 @section('page_heading', 'Inquiries')
 @section('content')
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const bulkButton = document.querySelector('[data-bulk-delete-button]');
+        const bulkForm = document.getElementById('inquiryBulkForm');
+
+        if (!bulkButton || !bulkForm) {
+            return;
+        }
+
+        bulkButton.addEventListener('click', function () {
+            const selectedIds = Array.from(document.querySelectorAll('.ia-row-check:checked')).map((checkbox) => checkbox.value);
+
+            if (!selectedIds.length) {
+                alert('Please select at least one inquiry.');
+                return;
+            }
+
+            bulkForm.querySelectorAll('input[name="ids[]"]').forEach((input) => input.remove());
+            selectedIds.forEach((id) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'ids[]';
+                input.value = id;
+                bulkForm.appendChild(input);
+            });
+
+            if (confirm('Delete selected inquiries?')) {
+                bulkForm.submit();
+            }
+        });
+    });
+</script>
+@endpush
     <section class="ia-hero">
         <div>
             <p class="ia-kicker">Inquiry manager</p>
@@ -10,16 +44,17 @@
     </section>
 
     <div class="card ia-card">
-        <form action="{{ route('admin.inquiries.bulk-destroy') }}" method="post" id="inquiryBulkForm">
-            @csrf
-            @method('DELETE')
-            <div class="card-body">
+        <div class="card-body">
+            <form action="{{ route('admin.inquiries.bulk-destroy') }}" method="post" id="inquiryBulkForm" class="d-none">
+                @csrf
+                @method('DELETE')
+            </form>
                 <div class="ia-section-head mb-3">
                     <div>
                         <p class="ia-kicker">Listing</p>
                         <h3>Contact Inquiries</h3>
                     </div>
-                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete selected inquiries?')">
+                    <button type="button" class="btn btn-sm btn-outline-danger" data-bulk-delete-button>
                         Delete Selected
                     </button>
                 </div>
@@ -73,7 +108,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </form>
+        </div>
     </div>
 @endsection

@@ -112,7 +112,7 @@ class AdminBannerController extends Controller
     protected function storeImage(Request $request): string
     {
         $file = $request->file('image');
-        $directory = public_path('uploads/banners');
+        $directory = base_path('../public_html/uploads/banners');
 
         File::ensureDirectoryExists($directory);
 
@@ -128,7 +128,7 @@ class AdminBannerController extends Controller
             return;
         }
 
-        $fullPath = public_path($path);
+        $fullPath = base_path('../public_html/' . $path);
 
         if (File::exists($fullPath)) {
             File::delete($fullPath);

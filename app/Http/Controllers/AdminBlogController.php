@@ -142,7 +142,7 @@ class AdminBlogController extends Controller
     protected function storeImage(Request $request): string
     {
         $file = $request->file('image');
-        $directory = public_path('uploads/blogs');
+        $directory = base_path('../public_html/uploads/blogs');
 
         File::ensureDirectoryExists($directory);
 
@@ -158,7 +158,7 @@ class AdminBlogController extends Controller
             return;
         }
 
-        $fullPath = public_path($path);
+        $fullPath = base_path('../public_html/' . $path);
 
         if (File::exists($fullPath)) {
             File::delete($fullPath);

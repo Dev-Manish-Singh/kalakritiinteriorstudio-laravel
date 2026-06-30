@@ -26,14 +26,14 @@ class AdminSettingController extends Controller
 
         if ($request->hasFile('site_logo')) {
             $logo = $request->file('site_logo');
-            $directory = public_path('uploads/settings');
+            $directory = base_path('../public_html/uploads/settings');
             if (! File::exists($directory)) {
                 File::makeDirectory($directory, 0755, true);
             }
 
             $currentLogo = Setting::getValue('site_logo');
-            if ($currentLogo && str_starts_with((string) $currentLogo, 'uploads/settings/') && File::exists(public_path($currentLogo))) {
-                File::delete(public_path($currentLogo));
+            if ($currentLogo && str_starts_with((string) $currentLogo, 'uploads/settings/') && File::exists(base_path('../public_html/' . $currentLogo))) {
+                File::delete(base_path('../public_html/' . $currentLogo));
             }
 
             $filename = 'site-logo-' . time() . '-' . Str::random(8) . '.' . $logo->getClientOriginalExtension();

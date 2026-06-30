@@ -171,7 +171,7 @@ class AdminProjectController extends Controller
     protected function storeImage(Request $request, string $field, string $directory): string
     {
         $file = $request->file($field);
-        $fullDirectory = public_path($directory);
+        $fullDirectory = base_path('../public_html/' . $directory);
 
         File::ensureDirectoryExists($fullDirectory);
 
@@ -196,7 +196,7 @@ class AdminProjectController extends Controller
             return;
         }
 
-        $fullPath = public_path($path);
+        $fullPath = base_path('../public_html/' . $path);
 
         if (File::exists($fullPath)) {
             File::delete($fullPath);

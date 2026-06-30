@@ -9,7 +9,7 @@
                         <div class="left-column">
                             <ul class="info-list">
  <li><img src="{{ asset('assets/images/icons/icon-1.png') }}" alt="">Call for help: <a href="tel:18004567890"><span>(+1800) 456 7890</span></a></li>
- <li><img src="{{ asset('assets/images/icons/icon-2.png') }}" alt=""><a href="{{ route('contact') }}">Book An Appointment</a></li>
+ <!-- <li><img src="{{ asset('assets/images/icons/icon-2.png') }}" alt=""><a href="{{ route('contact') }}">Book An Appointment</a></li> -->
                             </ul>
                             <ul class="social-links">
                                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
